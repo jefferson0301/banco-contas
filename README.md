@@ -12,16 +12,16 @@ Esse projeto foi desenvolvido em React foi utilizado Chakra Ui para auxiliar na 
 Para abrir o projeto na pasta api execute yarn i para instalar as dependências 
 execute o comando nodemon index.js para abrir o servidor da api
 
-#Api
+# Api
 #Listar todas as contas
 -http://localhost:8801/
-#Listar todas as contas do mês
+# Listar todas as contas do mês
 - mes-listado pode ser: janeiro,fevereiro,março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro
 -http://localhost:8801/mes-listado
-#Adicionar conta
+# Adicionar conta
 -use o método POST
 -coloque a url: http://localhost:8801/
-#remover conta
+# Remover conta
 -utilize o método DELETE
 -id coresponde ao id da conta que será removida
 -http://localhost:8801/:id
