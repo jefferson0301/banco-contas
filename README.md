@@ -1,6 +1,5 @@
 # banco-contas
-Esse projeto foi desenvolvido em React foi utilizado Chakra Ui para auxiliar na contrução do front-end. Essa aplicação teve como banco de dados o mysql. Esse projeto tem como finalidade auxiliar a contabilidade das contas. Sendo possível adicionar, editar, remover, pesquisar contas. Feita a soma das contas conforme a pequisa.
-
+Esse projeto foi desenvolvido em React foi utilizado Chakra Ui para auxiliar na contrução do front-end. Essa aplicação teve como banco de dados o mysql. Esse projeto tem como finalidade auxiliar a contabilidade das contas. Sendo possível adicionar, editar, remover, pesquisar contas,calcular o total gasto por ano e por mês. Foi desenvolvido um painel de controle no qual mostra os dados em gráficos de forma mais rápida.
 # Tecnicas e Tecnologias utilizadas
 - React
 - Java Script
