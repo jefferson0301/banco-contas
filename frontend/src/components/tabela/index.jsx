@@ -5,7 +5,11 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import axios from "axios";
 
 
-const Tabela = ({contas, setOnEdit ,onEdit}) => {
+const Tabela = ({contas, onEdit ,setOnEdit }) => {
+
+ 
+
+  console.log(contas)
 
     const handleDelete = async (id) => {
         await axios.delete("http://localhost:8801/"+id)
@@ -14,10 +18,11 @@ const Tabela = ({contas, setOnEdit ,onEdit}) => {
     } 
     
 return (
-    
-    <TableContainer width="80%" borderRadius="5px" marginTop="2rem" >
+
+  <>  
+    <TableContainer margin="0 auto" width="95%" borderRadius="5px" marginTop="2rem" >
     <Table   >
-      <Thead backgroundColor="gray"  >
+      <Thead backgroundColor="green"  >
         <Th color="white" textAlign="center" >Nome</Th>
         <Th color="white" textAlign="center" >Valor</Th>
         <Th color="white" textAlign="center" >Ações</Th>
@@ -44,7 +49,11 @@ return (
       </Tbody>
     </Table>
    </TableContainer>
+   
+   </>
   )
+  
 }
+
 
 export default Tabela

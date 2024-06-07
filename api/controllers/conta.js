@@ -33,23 +33,59 @@ export const getContasMes = (req, res) => {
     } )
 }
 
-export const getContasMesCalcularTotal = (req, res) => {
+export const calcularTotalContasMes = (req, res) => {
+    const q = "SELECT SUM(valor) AS total_mes , mes FROM contas GROUP BY mes"
+    //const q = "SELECT * FROM contas"
+
+    db.query(q, (err, data) => {
+        if(err) return res.json(err)
+
+        return res.status(200).json(data)
+    } )
+}
+
+export const getContasAnoCalcularTotal = (req, res) => {
     const mes = req.params.mes
     // if(!MESES_ANO.includes(mes)){
     //     return res.status(400).json("Insira um mês válido")
     // }
-    const q = `SELECT * FROM contas WHERE mes = "${mes}"`
+    const q = "SELECT SUM(valor) AS total FROM contas "
+    //const q = `SELECT * FROM contas WHERE mes = "${mes}"`
     
 
     db.query(q, (err, data) => {
         if(err) return res.json(err)
 
         //return res.status(200).json(data)
-        let total = 0
-        for(let i = 0; i < data.length; i++ ) {
-            total = total + data[i].valor
-        }
-        return res.status(200).json(`{total: ${total} }`)
+        // let total = 0
+        // for(let i = 0; i < data.length; i++ ) {
+        //     total = total + data[i].valor
+        // }
+        //return res.status(200).json(`{total: ${total} }`)
+        return res.status(200).json(data)
+        
+    } )
+}
+
+export const getContasMesCalcularTotal = (req, res) => {
+    const mes = req.params.mes
+    // if(!MESES_ANO.includes(mes)){
+    //     return res.status(400).json("Insira um mês válido")
+    // }
+    const q = `SELECT SUM(valor) AS total FROM contas WHERE mes = "${mes}" `
+    //const q = `SELECT * FROM contas WHERE mes = "${mes}"`
+    
+
+    db.query(q, (err, data) => {
+        if(err) return res.json(err)
+
+        //return res.status(200).json(data)
+        // let total = 0
+        // for(let i = 0; i < data.length; i++ ) {
+        //     total = total + data[i].valor
+        // }
+        //return res.status(200).json(`{total: ${total} }`)
+        return res.status(200).json(data)
         
     } )
 }

@@ -20,10 +20,6 @@ const Formulario = ({calcularGastos,contas, setOnEdit ,onEdit, setContas, setGas
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    // if(nome === "" || mes === "" || valor === ""){
-    //   toast.warn("preencha os campos")
-    //   return
-    // }
 
     const conta = {
       nome,
@@ -76,35 +72,34 @@ const Formulario = ({calcularGastos,contas, setOnEdit ,onEdit, setContas, setGas
     
   }
 
-  
-  
-
   return (
   
-   <form className={styles.formulario} onSubmit={handleSubmit} >
-    
-    <FormLabel w="7%" >Nome</FormLabel>
+   <form  className={styles.formulario} onSubmit={handleSubmit} >
+    {/* w={["70%","80%","90%","90%"]} display="flex" alignItems="center" justifyContent="center" flexDirection={["column","column","column","row"]} */}
+    <FormLabel  >Nome</FormLabel>
     <Input 
-      w="20%"
+      className={styles.input}
       placeholder="Descreva a despesa" 
       type="text" onChange={(e) => setNome(e.target.value) }
       value={nome}
     />
-    <FormLabel w="7%"  >Mes</FormLabel>
-    <Select w="20%" placeholder="Selecione o mês" value={mes}  onChange={(e) => setMes(e.target.value)} >
+    <FormLabel   >Mes</FormLabel>
+    <Select className={styles.input}  placeholder="Selecione o mês" value={mes}  onChange={(e) => setMes(e.target.value)} >
       {MESES_ANO.map( (mes) => (
         <option key={mes} value={mes}  >{mes}</option>
       ))}
     </Select>
-    <FormLabel w="7%"  >Valor</FormLabel>
+    <FormLabel   >Valor</FormLabel>
     <Input 
-     w="20%"
+     className={styles.input}
       placeholder="valor da despesa" 
       type="number" onChange={(e) => setValor(e.target.value) } 
       value={valor}
     />
-    <Button w="10%" type="submit" colorScheme='teal' size='xs' width="120px" height="40px" > Adicionar </Button>
-    <Button w="10%" onClick={() => setOnSearch(mes) } type="submit" colorScheme='teal' size='xs' width="120px" height="40px" > Pesquisar </Button>
+    <div className={styles.card_botoes} >
+      <Button w="220px" type="submit" colorScheme='teal' size='xs'  height="40px" > Adicionar </Button>
+      <Button w="220px" onClick={() => setOnSearch(mes) } type="submit" colorScheme='teal' size='xs'  height="40px" > Pesquisar </Button>
+    </div>
    </form>
    
   )
