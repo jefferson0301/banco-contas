@@ -79,12 +79,7 @@ export const getContasMesCalcularTotal = (req, res) => {
     db.query(q, (err, data) => {
         if(err) return res.json(err)
 
-        //return res.status(200).json(data)
-        // let total = 0
-        // for(let i = 0; i < data.length; i++ ) {
-        //     total = total + data[i].valor
-        // }
-        //return res.status(200).json(`{total: ${total} }`)
+        
         return res.status(200).json(data)
         
     } )

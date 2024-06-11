@@ -14,8 +14,8 @@ const Cabecalho = () => {
       background="green" 
       color="white" 
     >
-      <Link to="/" ><img  src="balanco-financeiro64.png" alt="balanco financeiro" /></Link>
-      <Link to="/dashboard" ><img  src="painel-de-controle.png" alt="painel de controle" /></Link>
+      <Link to="/" ><img  src="balanco-patrimonial.png" alt="balanco financeiro" /></Link>
+      <Link to="/dashboard" ><img  src="painel-de-controle2.png" alt="painel de controle" /></Link>
       
       </Heading>
   )

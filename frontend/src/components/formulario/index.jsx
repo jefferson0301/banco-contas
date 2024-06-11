@@ -1,5 +1,5 @@
 import { Button, FormLabel, Input, Select} from "@chakra-ui/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styles from "./Formulario.module.css"
 import axios from "axios";
 
@@ -36,12 +36,27 @@ const Formulario = ({calcularGastos,contas, setOnEdit ,onEdit, setContas, setGas
       await axios.get("http://localhost:8801/"+onSearch,)
         .then(({data}) => {
           toast.success(`Pesquisa das contas do mês: ${onSearch} feitas com sucesso`)
-          calcularGastos(data)   
           setContas(data)
+          //console.log(data)
+          calcularTotalMes(data)
+          //calcularGastos(data)   
+          
         }  )
         .catch( ({err}) => toast.error("Erro"+err) )
-      setOnSearch(null)
+        
     }
+
+    // if(onSearch){
+    //   await axios.get("http://localhost:8801/balanco/"+onSearch)
+    //   .then(({data}) => {
+    //     console.log(data[0].total)
+    //     setContas(data[0].total)
+
+    //   } )
+    //   .catch( ({err}) => console.log(err) )
+
+    //   setOnSearch(null)
+    // }
 
     if(onEdit){
       
@@ -53,9 +68,10 @@ const Formulario = ({calcularGastos,contas, setOnEdit ,onEdit, setContas, setGas
       })
       .then( ({data}) => {
         toast.success("usuário modificado com sucesso"+data)
-        setContas(contas)
+        setOnEdit(null)
+        //setContas(contas)
       }  )
-      .catch( ({data}) => toast.error(err) ) 
+      .catch( ({err}) => toast.error(err) ) 
 
       setOnEdit(null)
     }else{
@@ -65,12 +81,23 @@ const Formulario = ({calcularGastos,contas, setOnEdit ,onEdit, setContas, setGas
           valor: conta.valor
       })
       .then( ({data}) => toast.success('Conta adicionada com sucesso'))
-      .catch( ({data}) => toast.error(err))
+      .catch( ({err}) => toast.error(err))
       
     }
 
     
   }
+
+  const calcularTotalMes = (mes) => {
+    let total = 0
+    for(let i = 0; i < mes.length; i++ ){
+        total = total + mes[i].valor
+    }
+    
+    setGastos(total)
+  }
+
+  
 
   return (
   

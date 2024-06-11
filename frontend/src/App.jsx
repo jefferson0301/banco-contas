@@ -11,6 +11,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Principal from "./pages/principal/index.jsx";
 
 import Tabela from "../src/components/tabela/index.jsx"
+import Dashboard from "./pages/dashboard/index.jsx";
 
 
 function App() {
@@ -183,8 +184,7 @@ function App() {
           setGastos={setGastos}
           setMostrar={setMostrar}
         />} />
-        <Route path="dashboard" element={<Grafico setMostrar={setMostrar} grafico={grafico}/> } />
-        
+        <Route path="dashboard" element={<Dashboard gastos={gastos} setMostrar={setMostrar} grafico={grafico}/> } />
       </Routes>  
       {mostrar && <Tabela  
         contas={contas} 
